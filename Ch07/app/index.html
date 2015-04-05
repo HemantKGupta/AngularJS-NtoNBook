@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS Routing</title>
+    <link rel="stylesheet" href="css/app.css"/>
+</head>
+
+<body ng-controller="UserController">
+
+<form name="myform">
+
+    Select a country:
+    <br/>
+    <select name="country" ng-model="user.country" ng-options=
+            "country.id as country.desc for country in countries">
+
+        <option value="">Please select an option</option>
+
+    </select>
+
+    <br/>
+    Hey, what do you love?
+
+        <input type="radio" ng-model="user.choice" value="Coffee" />
+        Coffee
+        <input type="radio" ng-model="user.choice" value="Beer" />
+        Beer
+
+</form>
+
+<div>Selected Country: {{user.country}}</div>
+
+<div>I love: {{user.choice}}</div>
+
+<script type="text/javascript">
+
+    angular.module('myApp', []).controller('UserController',
+
+        function($scope) {
+
+            $scope.user = {};
+
+            $scope.countries = [{
+                id: 'US',
+                desc: 'United States'
+            }, {
+                id: 'GB',
+                desc: 'United Kingdom'
+            }, {
+                id: 'AU',
+                desc: 'Australia'
+            }];
+    });
+</script>
+
+    <script src="lib/angular/angular.js"></script>
+
+</body>
+</html>
